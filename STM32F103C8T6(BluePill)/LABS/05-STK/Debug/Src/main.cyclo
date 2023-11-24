@@ -1,0 +1,5 @@
+../Src/main.c:34:5:main	1
+../Src/main.c:43:6:SYSTICK_app	1
+../Src/main.c:68:6:Task	1
+../Src/main.c:75:6:Toggle_Green_Led	1
+../Src/main.c:81:6:Toggle_Red_Led	1

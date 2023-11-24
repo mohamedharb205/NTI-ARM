@@ -1,0 +1,5 @@
+../Src/GPIO_program.c:26:8:GPIO_voidEnableClock	5
+../Src/GPIO_program.c:48:8:GPIO_voidSetPinDirection	13
+../Src/GPIO_program.c:109:8:GPIO_voidSetPinValue	13
+../Src/GPIO_program.c:144:8:GPIO_voidTogglePin	7
+../Src/GPIO_program.c:171:8:GPIO_u8GetPinValue	7
