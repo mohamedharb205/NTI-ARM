@@ -316,3 +316,39 @@
 2023-11-24 00:33:40,971 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
 2023-11-24 00:33:40,975 [INFO] ApiDb:448 - Save user favorites file C:\Users\moham/.stm32cubeide/favorites.mcus.txt: 0 item(s)
 2023-11-24 00:33:40,976 [INFO] ApiDb:452 - User favorites MCUs=[]
+2023-11-24 08:12:41,240 [INFO] MainUpdater:2868 - connection check result : 10
+2023-11-24 08:12:41,387 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2023-11-24 08:12:41,388 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2023-11-24 08:12:41,388 [INFO] FinderPluginLoader:95 - Searching for filters in installed packs
+2023-11-24 08:12:42,618 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2023-11-24 08:12:42,618 [INFO] DetailPanel:341 - Set advertising image to C:/Users/moham/STM32Cube/Repository/\en.prom-stm32h5-mcu-finder.jpg
+2023-11-24 08:13:29,722 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2023-11-24 08:13:29,724 [INFO] ApiDb:448 - Save user favorites file C:\Users\moham/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2023-11-24 08:13:29,724 [INFO] ApiDb:452 - User favorites MCUs=[]
+2023-11-24 08:21:34,040 [INFO] MainUpdater:2868 - connection check result : 10
+2023-11-24 08:21:34,123 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2023-11-24 08:21:34,124 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2023-11-24 08:21:34,124 [INFO] FinderPluginLoader:95 - Searching for filters in installed packs
+2023-11-24 08:21:34,773 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2023-11-24 08:21:34,773 [INFO] DetailPanel:341 - Set advertising image to C:/Users/moham/STM32Cube/Repository/\en.prom-stm32h5-mcu-finder.jpg
+2023-11-24 08:22:24,677 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2023-11-24 08:22:24,679 [INFO] ApiDb:448 - Save user favorites file C:\Users\moham/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2023-11-24 08:22:24,679 [INFO] ApiDb:452 - User favorites MCUs=[]
+2023-11-24 08:27:04,073 [INFO] MainUpdater:2868 - connection check result : 10
+2023-11-24 08:27:04,157 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2023-11-24 08:27:04,158 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2023-11-24 08:27:04,158 [INFO] FinderPluginLoader:95 - Searching for filters in installed packs
+2023-11-24 08:27:04,734 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2023-11-24 08:27:04,735 [INFO] DetailPanel:341 - Set advertising image to C:/Users/moham/STM32Cube/Repository/\en.prom-stm32h5-mcu-finder.jpg
+2023-11-24 08:27:51,265 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2023-11-24 08:27:51,268 [INFO] ApiDb:448 - Save user favorites file C:\Users\moham/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2023-11-24 08:27:51,268 [INFO] ApiDb:452 - User favorites MCUs=[]
+2023-11-24 08:31:53,218 [INFO] MainUpdater:2868 - connection check result : 10
+2023-11-24 08:31:53,306 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2023-11-24 08:31:53,307 [INFO] MultiScanPanel:200 - Auto-refresh data requested => check proxy status ongoing
+2023-11-24 08:31:53,308 [INFO] FinderPluginLoader:95 - Searching for filters in installed packs
+2023-11-24 08:31:53,936 [INFO] LoadUrlFilesThread:185 - End of LoadServerUrlFiles without Thread
+2023-11-24 08:31:53,936 [INFO] DetailPanel:341 - Set advertising image to C:/Users/moham/STM32Cube/Repository/\en.prom-stm32h5-mcu-finder.jpg
+2023-11-24 08:32:27,514 [INFO] McuFinderGlobals:76 - Set McuFinderConnectedMode to true
+2023-11-24 08:32:27,516 [INFO] ApiDb:448 - Save user favorites file C:\Users\moham/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2023-11-24 08:32:27,517 [INFO] ApiDb:452 - User favorites MCUs=[]
