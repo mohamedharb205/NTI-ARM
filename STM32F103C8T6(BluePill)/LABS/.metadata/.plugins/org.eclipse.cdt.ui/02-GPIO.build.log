@@ -1,0 +1,28 @@
+08:14:15 **** Build of configuration Debug for project 02-GPIO ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/GPIO_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_program.d" -MT"Src/GPIO_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_program.o"
+arm-none-eabi-gcc "../Src/RCC_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_program.d" -MT"Src/RCC_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_program.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "02-GPIO.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\NTI\Workspaces\NTI-ARM\STM32F103C8T6(BluePill)\LABS\02-GPIO\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="02-GPIO.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 02-GPIO.elf
+ 
+arm-none-eabi-size   02-GPIO.elf 
+arm-none-eabi-objdump -h -S  02-GPIO.elf  > "02-GPIO.list"
+arm-none-eabi-objcopy  -O ihex  02-GPIO.elf  "02-GPIO.hex"
+arm-none-eabi-objcopy  -O binary  02-GPIO.elf  "02-GPIO.bin"
+   text	   data	    bss	    dec	    hex	filename
+   1548	      8	   1568	   3124	    c34	02-GPIO.elf
+Finished building: default.size.stdout
+ 
+Finished building: 02-GPIO.list
+ 
+Finished building: 02-GPIO.hex
+Finished building: 02-GPIO.bin
+ 
+ 
+
+08:14:16 Build Finished. 0 errors, 0 warnings. (took 1s.571ms)
+

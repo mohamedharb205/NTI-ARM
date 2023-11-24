@@ -501,3 +501,12 @@ java.net.UnknownHostException: sw-center.st.com
 
 !ENTRY org.eclipse.cdt.core 1 0 2023-11-24 00:34:53.314
 !MESSAGE Indexed '01-RCC' (4 sources, 59 headers) in 0.371 sec: 1,976 declarations; 2,911 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.041%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-11-24 08:13:29.660
+!MESSAGE Indexed '02-GPIO' (2 sources, 53 headers) in 0.461 sec: 1,948 declarations; 2,829 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-11-24 08:14:04.600
+!MESSAGE Indexed '02-GPIO' (5 sources, 64 headers) in 0.365 sec: 2,022 declarations; 3,194 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.038%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-11-24 08:14:10.715
+!MESSAGE Indexed '02-GPIO' (5 sources, 64 headers) in 0.313 sec: 2,022 declarations; 3,194 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.038%)
