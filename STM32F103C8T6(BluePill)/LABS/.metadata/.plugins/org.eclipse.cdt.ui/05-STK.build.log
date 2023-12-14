@@ -1,33 +1,22 @@
-08:29:05 **** Build of configuration Debug for project 05-STK ****
+01:22:22 **** Incremental Build of configuration Debug for project 05-STK ****
 make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
 arm-none-eabi-gcc "../Src/GPIO_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_program.d" -MT"Src/GPIO_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_program.o"
-arm-none-eabi-gcc "../Src/RCC_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_program.d" -MT"Src/RCC_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_program.o"
-arm-none-eabi-gcc "../Src/STK_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/STK_program.d" -MT"Src/STK_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/STK_program.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-../Src/STK_program.c: In function 'SysTick_Handler':
-../Src/STK_program.c:151:12: warning: variable 'Local_u8FlagReading' set but not used [-Wunused-but-set-variable]
-  151 |         u8 Local_u8FlagReading = 0;
-      |            ^~~~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "05-STK.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\NTI\Workspaces\NTI-ARM\STM32F103C8T6(BluePill)\LABS\05-STK\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="05-STK.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 05-STK.elf
- 
-arm-none-eabi-size   05-STK.elf 
-arm-none-eabi-objdump -h -S  05-STK.elf  > "05-STK.list"
-arm-none-eabi-objcopy  -O ihex  05-STK.elf  "05-STK.hex"
-   text	   data	    bss	    dec	    hex	filename
-   1756	      8	   1576	   3340	    d0c	05-STK.elf
-arm-none-eabi-objcopy  -O binary  05-STK.elf  "05-STK.bin"
-Finished building: default.size.stdout
- 
-Finished building: 05-STK.list
-Finished building: 05-STK.hex
-Finished building: 05-STK.bin
- 
- 
- 
+../Src/GPIO_program.c: In function 'GPIO_voidEnableClock':
+../Src/GPIO_program.c:30:109: error: 'RCC_APB2_IOPARST' undeclared (first use in this function); did you mean 'RCC_APB2_USART1'?
+   30 |                                 case GPIOA      :               RCC_voidEnableClockPeripheral(RCC_BUS_APB2, RCC_APB2_IOPARST);          break;  // activate the RCC for GPIOA
+      |                                                                                                             ^~~~~~~~~~~~~~~~
+      |                                                                                                             RCC_APB2_USART1
+../Src/GPIO_program.c:30:109: note: each undeclared identifier is reported only once for each function it appears in
+../Src/GPIO_program.c:31:109: error: 'RCC_APB2_IOPBRST' undeclared (first use in this function); did you mean 'RCC_APB2_SPI1'?
+   31 |                                 case GPIOB      :               RCC_voidEnableClockPeripheral(RCC_BUS_APB2, RCC_APB2_IOPBRST);          break;  // activate the RCC for GPIOB
+      |                                                                                                             ^~~~~~~~~~~~~~~~
+      |                                                                                                             RCC_APB2_SPI1
+../Src/GPIO_program.c:32:109: error: 'RCC_APB2_IOPCRST' undeclared (first use in this function); did you mean 'RCC_APB2_SPI1'?
+   32 |                                 case GPIOC      :               RCC_voidEnableClockPeripheral(RCC_BUS_APB2, RCC_APB2_IOPCRST);          break;  // activate the RCC for GPIOC
+      |                                                                                                             ^~~~~~~~~~~~~~~~
+      |                                                                                                             RCC_APB2_SPI1
+make: *** [Src/subdir.mk:34: Src/GPIO_program.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
 
-08:29:06 Build Finished. 0 errors, 1 warnings. (took 935ms)
+01:22:23 Build Failed. 4 errors, 0 warnings. (took 704ms)
 

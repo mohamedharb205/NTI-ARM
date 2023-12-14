@@ -1,0 +1,40 @@
+/*
+ * TIMERx_config.h
+ *
+ *  Created on: Dec 14, 2023
+ *      Author: EngMoS
+ */
+
+#ifndef TIMERX_CONFIG_H_
+#define TIMERX_CONFIG_H_
+
+
+
+
+
+/* Options:- TIMER_ENABLE  -  TIMER_DISABLE */
+#define TIMER_3_ENABLE 					TIMER_ENABLE
+/* Options:- TIMER_COUNT_UP  -  TIMER_COUNT_DOWN */
+#define TIMER_3_DIRECTION 				TIMER_COUNT_UP
+/* Options:- 0.... 65565 */
+#define TIMER_3_PRESCALER 				2
+#define TIMER_3_MAX_VALUE 				1000
+
+
+
+
+
+/*My  Work*/
+
+
+#define TIM3_COMPARE_VAL_CH1			199
+#define TIM3_MAX_NUM_OF_TICKS_CH1		8192
+
+#define TIM3_COMPARE_VAL_CH2			199
+#define TIM3_MAX_NUM_OF_TICKS_CH2		8192
+
+
+
+
+
+#endif /* TIMERX_CONFIG_H_ */

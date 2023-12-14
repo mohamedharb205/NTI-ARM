@@ -1,0 +1,13 @@
+/*
+ * TIMERx_config.h
+ *
+ *  Created on: Dec 14, 2023
+ *      Author: EngMoS
+ */
+
+#ifndef TIMERX_CONFIG_H_
+#define TIMERX_CONFIG_H_
+
+
+
+#endif /* TIMERX_CONFIG_H_ */

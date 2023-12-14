@@ -1,30 +1,64 @@
-08:29:05 **** Build of configuration Debug for project 05-STK ****
+22:33:20 **** Incremental Build of configuration Debug for project Control_Car_with_Mobile ****
 make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
-arm-none-eabi-gcc "../Src/GPIO_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_program.d" -MT"Src/GPIO_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_program.o"
-arm-none-eabi-gcc "../Src/RCC_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_program.d" -MT"Src/RCC_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_program.o"
-arm-none-eabi-gcc "../Src/STK_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/STK_program.d" -MT"Src/STK_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/STK_program.o"
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-../Src/STK_program.c: In function 'SysTick_Handler':
-../Src/STK_program.c:151:12: warning: variable 'Local_u8FlagReading' set but not used [-Wunused-but-set-variable]
-  151 |         u8 Local_u8FlagReading = 0;
-      |            ^~~~~~~~~~~~~~~~~~~
-arm-none-eabi-gcc -o "05-STK.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\NTI\Workspaces\NTI-ARM\STM32F103C8T6(BluePill)\LABS\05-STK\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="05-STK.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 05-STK.elf
+arm-none-eabi-gcc "../Src/TIMERx_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/TIMERx_program.d" -MT"Src/TIMERx_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/TIMERx_program.o"
+arm-none-eabi-gcc -o "Control_Car_with_Mobile.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\NTI\Workspaces\NTI-ARM\STM32F103C8T6(BluePill)\LABS\Control_Car_with_Mobile\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Control_Car_with_Mobile.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Control_Car_with_Mobile.elf
  
-arm-none-eabi-size   05-STK.elf 
-arm-none-eabi-objdump -h -S  05-STK.elf  > "05-STK.list"
-arm-none-eabi-objcopy  -O ihex  05-STK.elf  "05-STK.hex"
+arm-none-eabi-size   Control_Car_with_Mobile.elf 
+arm-none-eabi-objdump -h -S  Control_Car_with_Mobile.elf  > "Control_Car_with_Mobile.list"
+arm-none-eabi-objcopy  -O ihex  Control_Car_with_Mobile.elf  "Control_Car_with_Mobile.hex"
    text	   data	    bss	    dec	    hex	filename
-   1756	      8	   1576	   3340	    d0c	05-STK.elf
-arm-none-eabi-objcopy  -O binary  05-STK.elf  "05-STK.bin"
+   1840	      8	   1576	   3424	    d60	Control_Car_with_Mobile.elf
+arm-none-eabi-objcopy  -O binary  Control_Car_with_Mobile.elf  "Control_Car_with_Mobile.bin"
 Finished building: default.size.stdout
  
-Finished building: 05-STK.list
-Finished building: 05-STK.hex
-Finished building: 05-STK.bin
+Finished building: Control_Car_with_Mobile.hex
+Finished building: Control_Car_with_Mobile.bin
+Finished building: Control_Car_with_Mobile.list
  
  
+ 
+22:37:37 **** Incremental Build of configuration Debug for project Control_Car_with_Mobile ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c: In function 'main':
+../Src/main.c:109:38: error: 'Task' undeclared (first use in this function)
+  109 |         RTOS_voidCreateTask( 0, 200, Task, 0);  // Each 20 milliseconds , With periodicity = 2*10 = 20 milliseconds
+      |                                      ^~~~
+../Src/main.c:109:38: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:43: Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:37:38 **** Incremental Build of configuration Debug for project TIMERx ****
+make -j8 all 
+arm-none-eabi-size   TIMERx.elf 
+   text	   data	    bss	    dec	    hex	filename
+    912	      8	   1632	   2552	    9f8	TIMERx.elf
+Finished building: default.size.stdout
+ 
+22:37:55 **** Incremental Build of configuration Debug for project Control_Car_with_Mobile ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Control_Car_with_Mobile.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\NTI\Workspaces\NTI-ARM\STM32F103C8T6(BluePill)\LABS\Control_Car_with_Mobile\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Control_Car_with_Mobile.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Control_Car_with_Mobile.elf
+ 
+arm-none-eabi-size   Control_Car_with_Mobile.elf 
+arm-none-eabi-objdump -h -S  Control_Car_with_Mobile.elf  > "Control_Car_with_Mobile.list"
+arm-none-eabi-objcopy  -O ihex  Control_Car_with_Mobile.elf  "Control_Car_with_Mobile.hex"
+arm-none-eabi-objcopy  -O binary  Control_Car_with_Mobile.elf  "Control_Car_with_Mobile.bin"
+   text	   data	    bss	    dec	    hex	filename
+   1984	      8	   1608	   3600	    e10	Control_Car_with_Mobile.elf
+Finished building: default.size.stdout
+ 
+Finished building: Control_Car_with_Mobile.hex
+Finished building: Control_Car_with_Mobile.bin
+Finished building: Control_Car_with_Mobile.list
+ 
+ 
+ 
+22:37:55 **** Incremental Build of configuration Debug for project TIMERx ****
+make -j8 all 
+arm-none-eabi-size   TIMERx.elf 
+   text	   data	    bss	    dec	    hex	filename
+    912	      8	   1632	   2552	    9f8	TIMERx.elf
+Finished building: default.size.stdout
  

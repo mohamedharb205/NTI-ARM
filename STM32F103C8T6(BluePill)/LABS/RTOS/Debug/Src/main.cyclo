@@ -1,0 +1,4 @@
+../Src/main.c:22:5:main	1
+../Src/main.c:43:6:LED1	1
+../Src/main.c:48:6:LED2	1
+../Src/main.c:53:6:LED3	1

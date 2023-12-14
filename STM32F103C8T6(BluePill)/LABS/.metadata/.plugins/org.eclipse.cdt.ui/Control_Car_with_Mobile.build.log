@@ -1,0 +1,23 @@
+22:37:55 **** Incremental Build of configuration Debug for project Control_Car_with_Mobile ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "Control_Car_with_Mobile.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\NTI\Workspaces\NTI-ARM\STM32F103C8T6(BluePill)\LABS\Control_Car_with_Mobile\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Control_Car_with_Mobile.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Control_Car_with_Mobile.elf
+ 
+arm-none-eabi-size   Control_Car_with_Mobile.elf 
+arm-none-eabi-objdump -h -S  Control_Car_with_Mobile.elf  > "Control_Car_with_Mobile.list"
+arm-none-eabi-objcopy  -O ihex  Control_Car_with_Mobile.elf  "Control_Car_with_Mobile.hex"
+arm-none-eabi-objcopy  -O binary  Control_Car_with_Mobile.elf  "Control_Car_with_Mobile.bin"
+   text	   data	    bss	    dec	    hex	filename
+   1984	      8	   1608	   3600	    e10	Control_Car_with_Mobile.elf
+Finished building: default.size.stdout
+ 
+Finished building: Control_Car_with_Mobile.hex
+Finished building: Control_Car_with_Mobile.bin
+Finished building: Control_Car_with_Mobile.list
+ 
+ 
+ 
+
+22:37:55 Build Finished. 0 errors, 0 warnings. (took 519ms)
+

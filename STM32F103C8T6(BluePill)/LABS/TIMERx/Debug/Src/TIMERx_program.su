@@ -1,0 +1,16 @@
+../Src/TIMERx_program.c:26:18:TIMERx_GetTimerID	24	static
+../Src/TIMERx_program.c:41:6:TIMERx_voidInit	16	static
+../Src/TIMERx_program.c:78:6:TIMERx_voidUpdatePSC	32	static
+../Src/TIMERx_program.c:86:6:TIMERx_voidPWMSetup	24	static
+../Src/TIMERx_program.c:131:6:TIMERx_voidSetPWMDuty	24	static
+../Src/TIMERx_program.c:145:6:TIMERx_voidStopTimer	16	static
+../Src/TIMERx_program.c:158:6:TIMERx_voidStartTimer	16	static
+../Src/TIMERx_program.c:171:6:TIMERx_voidInputCaptureSetup	24	static
+../Src/TIMERx_program.c:222:6:TIMERx_voidGetInputCaptureCounter	24	static
+../Src/TIMERx_program.c:236:6:TIMERx_voidSetInputCaptureTrigger	24	static
+../Src/TIMERx_program.c:266:6:TIMERx_voidInputCaptureCallback	16	static
+../Src/TIMERx_program.c:277:6:TIM2_IRQHandler	8	static
+../Src/TIMERx_program.c:322:6:TIM3_IRQHandler	8	static
+../Src/TIMERx_program.c:369:6:TIM3_PWM_Init	8	static
+../Src/TIMERx_program.c:388:6:TIM3_PWM_CH1_Generate	16	static
+../Src/TIMERx_program.c:404:6:TIM3_PWM_CH2_Generate	16	static

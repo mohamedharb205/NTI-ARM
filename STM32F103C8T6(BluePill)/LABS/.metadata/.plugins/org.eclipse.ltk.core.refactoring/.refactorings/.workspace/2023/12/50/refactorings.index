@@ -1,0 +1,6 @@
+1702286686468	Delete resource '02-GPIO/Inc/RCC_interface.h'
+1702286704652	Delete resource '03-NVIC/Inc/RCC_interface.h'
+1702286743853	Delete resource '05-STK/Inc/RCC_interface.h'
+1702286788379	Delete resource '06-DMA/Inc/RCC_interface.h'
+1702286804092	Delete resource 'FPEC/Inc/RCC_interface.h'
+1702337343963	Rename resource 'USART1'

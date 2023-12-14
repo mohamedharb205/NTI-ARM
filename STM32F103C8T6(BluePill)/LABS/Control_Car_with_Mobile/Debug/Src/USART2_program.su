@@ -1,0 +1,9 @@
+../Src/USART2_program.c:25:6:USART2_voidInit	16	static
+../Src/USART2_program.c:135:6:USART2_voidSendCharSync	16	static
+../Src/USART2_program.c:147:6:USART2_voidSendStringSynch	24	static
+../Src/USART2_program.c:162:4:USART2_u8RecCharSynch	16	static
+../Src/USART2_program.c:190:5:USART2_PtrReadStringSynch	112	static
+../Src/USART2_program.c:209:6:USART2_voidSetCallBack	16	static
+../Src/USART2_program.c:218:6:USART2_IRQHandler	8	static
+../Src/USART2_program.c:237:6:UART2_voidTransmit	24	static
+../Src/USART2_program.c:250:4:UART2_u8Receive	24	static

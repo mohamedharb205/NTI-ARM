@@ -38,8 +38,8 @@ void GPIO_app(void)
 	RCC_voidInit();
 	GPIO_voidEnableClock(GPIOA);
 
-	GPIO_voidSetPinDirection(GPIOA, GPIO_u8PIN0, GPIO_PIN_OUTPUT_10MHZ_PUSH_PULL);	// PA0
-	GPIO_voidSetPinDirection(GPIOA, GPIO_u8PIN1, GPIO_PIN_OUTPUT_10MHZ_PUSH_PULL);	// PA1
+	GPIO_voidSetPinDirection(GPIOA, GPIO_u8PIN0, GPIO_PIN_OUTPUT_2MHZ_PUSH_PULL);	// PA0
+	GPIO_voidSetPinDirection(GPIOA, GPIO_u8PIN1, GPIO_PIN_OUTPUT_2MHZ_PUSH_PULL);	// PA1
 
 
     /* Loop forever */
@@ -66,7 +66,7 @@ void Toggle_Green_Led()
 {
 	//GPIO_voidSetPinValue(GPIOA, GPIO_u8PIN0, GPIO_u8PIN_HIGH);
 	GPIO_voidTogglePin(GPIOA, GPIO_u8PIN0);
-	Delay(50);
+	Delay(250);
 	//GPIO_voidSetPinValue(GPIOA, GPIO_u8PIN0, GPIO_u8PIN_LOW);
 	//Delay(100);
 }
@@ -75,7 +75,7 @@ void Toggle_Green_Led()
 void Toggle_Red_Led()
 {
 	GPIO_voidTogglePin(GPIOA, GPIO_u8PIN1);
-	Delay(50);
+	Delay(500);
 
 //	GPIO_voidSetPinValue(GPIOA, GPIO_u8PIN1, GPIO_u8PIN_HIGH);
 //	Delay(100);

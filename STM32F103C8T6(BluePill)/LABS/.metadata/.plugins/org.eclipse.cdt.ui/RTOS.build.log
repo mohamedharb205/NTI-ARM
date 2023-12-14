@@ -1,0 +1,43 @@
+21:46:37 **** Build of configuration Debug for project RTOS ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/GPIO_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_program.d" -MT"Src/GPIO_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_program.o"
+arm-none-eabi-gcc "../Src/RCC_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_program.d" -MT"Src/RCC_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_program.o"
+arm-none-eabi-gcc "../Src/RTOS_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RTOS_program.d" -MT"Src/RTOS_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RTOS_program.o"
+arm-none-eabi-gcc "../Src/SYSTICK_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/SYSTICK_program.d" -MT"Src/SYSTICK_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/SYSTICK_program.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+In file included from ../Src/RTOS_program.c:2:
+../Src/../Inc/STD_TYPES.h:33:65: warning: initialization of 'short unsigned int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   33 | #define         NULL                                            (void*)0
+      |                                                                 ^
+../Src/RTOS_program.c:11:49: note: in expansion of macro 'NULL'
+   11 | static TASK_TCB SYS_TASKS[ TASK_NUMBERS ] = { { NULL } };
+      |                                                 ^~~~
+../Src/../Inc/STD_TYPES.h:33:65: note: (near initialization for 'SYS_TASKS[0].Periodicity')
+   33 | #define         NULL                                            (void*)0
+      |                                                                 ^
+../Src/RTOS_program.c:11:49: note: in expansion of macro 'NULL'
+   11 | static TASK_TCB SYS_TASKS[ TASK_NUMBERS ] = { { NULL } };
+      |                                                 ^~~~
+arm-none-eabi-gcc -o "RTOS.elf" @"objects.list"   -mcpu=cortex-m3 -T"E:\NTI\Workspaces\NTI-ARM\STM32F103C8T6(BluePill)\LABS\RTOS\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTOS.elf
+ 
+arm-none-eabi-size   RTOS.elf 
+arm-none-eabi-objdump -h -S  RTOS.elf  > "RTOS.list"
+arm-none-eabi-objcopy  -O ihex  RTOS.elf  "RTOS.hex"
+arm-none-eabi-objcopy  -O binary  RTOS.elf  "RTOS.bin"
+   text	   data	    bss	    dec	    hex	filename
+   1976	      8	   1608	   3592	    e08	RTOS.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTOS.hex
+Finished building: RTOS.list
+Finished building: RTOS.bin
+ 
+ 
+ 
+
+21:46:39 Build Finished. 0 errors, 1 warnings. (took 1s.83ms)
+

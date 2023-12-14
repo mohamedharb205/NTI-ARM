@@ -1,0 +1,264 @@
+/*
+ * USART2_program.c
+ *
+ *  Created on: Dec 12, 2023
+ *      Author: EngMoS
+ */
+
+
+
+
+#include "STD_TYPES.h"
+#include "
+
+#include "USART2_interface.h"
+#include "USART2_register.h"
+#include "USART2_private.h"
+#include "USART2_config.h"
+
+
+#define THRESHOLD_VALUE  9000000UL
+void (*USART2_CallBack)(void);
+
+
+
+void USART2_voidInit ( void ){
+
+	u32 LOC_u64Mantissa2 = ( F_CPU ) / ( 16 * USART2_BAUD_RATE ) ;// 15.27 * 100 = 1527
+
+	u32 LOC_u64Fraction2 = ( ( ( F_CPU * 100 ) / ( 16 * USART2_BAUD_RATE )  ) % 100 ) * 16 ;
+
+	if( LOC_u64Fraction2 > 1500 ){ LOC_u64Mantissa2 += 1 ; LOC_u64Fraction2  = 0 ; }
+
+	#if USART2_STATUS == USART2_ENABLE
+
+		USART2 -> SR = 0 ;
+
+#if   USART2_WORD_LENGTH == _8BIT_WORD_LENGTH
+
+					CLR_BIT( USART2 -> CR1 , 12 );
+
+#elif USART2_WORD_LENGTH == _9BIT_WORD_LENGTH
+
+					SET_BIT( USART2 -> CR1 , 12 );
+
+#endif
+
+#if   USART2_PARITY == PARITY_DISABLE
+
+					CLR_BIT( USART2 -> CR1 , 10 );
+
+#elif USART2_PARITY == EVEN_PARITY
+
+					SET_BIT( USART2 -> CR1 , 10 );
+					CLR_BIT( USART2 -> CR1 , 9 );
+
+#elif USART2_PARITY == ODD_PARITY
+
+					SET_BIT( USART2 -> CR1 , 10 );
+					SET_BIT( USART2 -> CR1 , 9 );
+
+#endif
+
+#if  USART2_INTERRUPT == INT_DISABLE
+
+					CLR_BIT( USART2 -> CR1 , 5 );
+					CLR_BIT( USART2 -> CR1 , 6 );
+					CLR_BIT( USART2 -> CR1 , 7 );
+
+#elif USART2_INTERRUPT == TXE_INT_ENABLE
+
+					SET_BIT( USART2 -> CR1 , 7 );
+
+#elif USART2_INTERRUPT == TCE_INT_ENABLE
+
+					SET_BIT( USART2 -> CR1 , 6 );
+
+#elif USART2_INTERRUPT == RXNE_INT_ENABLE
+
+					SET_BIT( USART2 -> CR1 , 5 );
+
+#endif
+
+#if   USART2_TRANSMITTER == TRANSMITTER_ENABLE
+
+					SET_BIT( USART2 -> CR1 , 3 );
+
+#elif USART2_TRANSMITTER == TRANSMITTER_DISABLE
+
+					CLR_BIT( USART2 -> CR1 , 3 );
+
+#endif
+
+#if   USART2_RECEIVER == RECEIVER_ENABLE
+
+					SET_BIT( USART2 -> CR1 , 2 );
+
+#elif USART2_RECEIVER == RECEIVER_DISBLE
+
+					CLR_BIT( USART2 -> CR1 , 2 );
+
+#endif
+
+#if   USART2_STOP_BITS == ONE_STOP_BIT
+
+					CLR_BIT( USART2 -> CR2 , 12 ); CLR_BIT( USART2 -> CR2 , 13 );
+
+#elif USART2_STOP_BITS == HALF_STOP_BIT
+
+					SET_BIT( USART2 -> CR2 , 12 ); CLR_BIT( USART2 -> CR2 , 13 );
+
+#elif USART2_STOP_BITS == TWO_STOP_BIT
+
+					CLR_BIT( USART2 -> CR2 , 12 ); SET_BIT( USART2 -> CR2 , 13 );
+
+#elif USART2_STOP_BITS == ONE_AND_HALF_STOP_BIT
+
+					SET_BIT( USART2 -> CR2 , 12 ); SET_BIT( USART2 -> CR2 , 13 );
+
+
+#endif
+
+		USART2 -> BRR = ( LOC_u64Mantissa2 << 4  ) | ( LOC_u64Fraction2 / 100 ) ;
+		SET_BIT( USART2 -> CR1 , 13 );
+
+#elif USART2_STATUS == USART2_DISABLE
+		CLR_BIT( USART2 -> CR1 , 13 );
+
+	#endif
+
+
+}
+
+
+
+void USART2_voidSendCharSync ( u8 Copy_u8Char ){
+
+	USART2 -> DR = Copy_u8Char ;
+
+	while( GET_BIT( USART2 -> SR , 6 ) == 0 );
+
+	CLR_BIT( USART2 -> SR , 6 );
+
+}
+
+
+
+void USART2_voidSendStringSynch ( u8 * Copy_ptrString ){
+
+	u8 LOC_u8Iterator = 0 ;
+
+	while ( Copy_ptrString[ LOC_u8Iterator ] != '\0' ){
+
+		USART2_voidSendCharSync( Copy_ptrString[ LOC_u8Iterator ] );
+		LOC_u8Iterator++ ;
+
+	}
+
+}
+
+
+
+u8 USART2_u8RecCharSynch ( void ){
+
+	u8  LOC_u8Data  = 0 ;
+	u32 LOC_TimeOut = 0 ;
+
+	CLR_BIT ( USART2 -> SR, 5);
+
+	while( ( GET_BIT ( USART2 -> SR, 5) == 0 ) && ( LOC_TimeOut < THRESHOLD_VALUE ) )
+	{
+		LOC_TimeOut++;
+	}
+
+	if( LOC_TimeOut == THRESHOLD_VALUE )
+	{
+		LOC_u8Data = 255;
+	}
+	else
+	{
+
+		LOC_u8Data = USART2 -> DR;
+	}
+
+	return LOC_u8Data;
+
+}
+
+
+
+u8* USART2_PtrReadStringSynch ( void ){
+	u8 String[100];	// u8 str[] = "Harb";
+	u8 LOC_Iterator = 0 , LOC_u8DataCome ;
+
+	while( ( LOC_u8DataCome = USART2_u8RecCharSynch() ) != 13 )	// ASCII Table ... Enter Button that can be 10 or 13 in decimal or '\r'
+	{
+
+		String[ LOC_Iterator ] = LOC_u8DataCome ;
+		LOC_Iterator++;
+	}
+
+	String[LOC_Iterator] = '\0';
+
+	return String;
+
+}
+
+
+
+void USART2_voidSetCallBack( void (*ptr) (void) ){
+
+	USART2_CallBack = ptr ;
+
+}
+
+
+
+
+void USART2_IRQHandler(void){
+
+	USART2 -> SR = 0 ;
+	USART2_CallBack();
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+void UART2_voidTransmit(u8 arr[])
+{
+	u8 i = 0;
+	while(arr[i] != '\0'){
+		USART2 -> DR = arr[i];
+		while((GET_BIT((USART2 -> SR), 6)) == 0);
+		i++;
+	}
+
+}
+
+
+
+u8 UART2_u8Receive(u8* Copy_u8Data)
+{
+	u8 Local_u8Result = 1;
+
+	if ( (GET_BIT((USART2 -> SR), 5)) == 1 )
+	{
+		*Copy_u8Data = USART2 -> DR;
+	}
+	else
+	{
+		Local_u8Result = 0;
+	}
+
+	return (Local_u8Result);
+}

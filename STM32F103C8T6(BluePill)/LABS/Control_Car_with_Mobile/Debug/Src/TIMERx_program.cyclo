@@ -1,0 +1,3 @@
+../Src/TIMERx_program.c:363:6:TIM3_PWM_Init	1
+../Src/TIMERx_program.c:384:6:TIM3_PWM_CH1_Generate	1
+../Src/TIMERx_program.c:400:6:TIM3_PWM_CH2_Generate	1

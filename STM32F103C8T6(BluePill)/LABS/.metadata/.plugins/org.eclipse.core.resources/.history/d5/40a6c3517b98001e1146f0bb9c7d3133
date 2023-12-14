@@ -1,0 +1,13 @@
+/*
+ * USART2_register.h
+ *
+ *  Created on: Dec 12, 2023
+ *      Author: EngMoS
+ */
+
+#ifndef USART2_REGISTER_H_
+#define USART2_REGISTER_H_
+
+
+
+#endif /* USART2_REGISTER_H_ */

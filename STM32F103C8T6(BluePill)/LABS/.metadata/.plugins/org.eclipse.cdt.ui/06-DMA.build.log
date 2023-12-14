@@ -1,0 +1,41 @@
+21:57:57 **** Build of configuration Debug for project 06-DMA ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c8tx.d" -MT"Startup/startup_stm32f103c8tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c8tx.o" "../Startup/startup_stm32f103c8tx.s"
+arm-none-eabi-gcc "../Src/DMA_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/DMA_program.d" -MT"Src/DMA_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/DMA_program.o"
+arm-none-eabi-gcc "../Src/GPIO_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/GPIO_program.d" -MT"Src/GPIO_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/GPIO_program.o"
+arm-none-eabi-gcc "../Src/NVIC_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/NVIC_program.d" -MT"Src/NVIC_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/NVIC_program.o"
+arm-none-eabi-gcc "../Src/RCC_program.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/RCC_program.d" -MT"Src/RCC_program.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/RCC_program.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+../Src/GPIO_program.c: In function 'GPIO_voidEnableClock':
+../Src/GPIO_program.c:30:109: error: 'RCC_APB2_IOPARST' undeclared (first use in this function); did you mean 'RCC_APB2_USART1'?
+   30 |                                 case GPIOA      :               RCC_voidEnableClockPeripheral(RCC_BUS_APB2, RCC_APB2_IOPARST);          break;  // activate the RCC for GPIOA
+      |                                                                                                             ^~~~~~~~~~~~~~~~
+      |                                                                                                             RCC_APB2_USART1
+../Src/GPIO_program.c:30:109: note: each undeclared identifier is reported only once for each function it appears in
+../Src/GPIO_program.c:31:109: error: 'RCC_APB2_IOPBRST' undeclared (first use in this function); did you mean 'RCC_APB2_SPI1'?
+   31 |                                 case GPIOB      :               RCC_voidEnableClockPeripheral(RCC_BUS_APB2, RCC_APB2_IOPBRST);          break;  // activate the RCC for GPIOB
+      |                                                                                                             ^~~~~~~~~~~~~~~~
+      |                                                                                                             RCC_APB2_SPI1
+../Src/main.c: In function 'DMA_app':
+../Src/main.c:50:13: warning: variable 'Arr4' set but not used [-Wunused-but-set-variable]
+   50 |         u32 Arr4[1000] = {0};
+      |             ^~~~
+../Src/GPIO_program.c:32:109: error: 'RCC_APB2_IOPCRST' undeclared (first use in this function); did you mean 'RCC_APB2_SPI1'?
+   32 |                                 case GPIOC      :               RCC_voidEnableClockPeripheral(RCC_BUS_APB2, RCC_APB2_IOPCRST);          break;  // activate the RCC for GPIOC
+      |                                                                                                             ^~~~~~~~~~~~~~~~
+      |                                                                                                             RCC_APB2_SPI1
+../Src/DMA_program.c: In function 'DMA1_voidChannelStart':
+../Src/DMA_program.c:55:33: warning: assignment to 'u32' {aka 'long unsigned int'} from 'u32 *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   55 |         DMA1_t->Channel[0].CPAR = Copy_pu32SourceAddress;
+      |                                 ^
+../Src/DMA_program.c:56:33: warning: assignment to 'u32' {aka 'long unsigned int'} from 'u32 *' {aka 'long unsigned int *'} makes integer from pointer without a cast [-Wint-conversion]
+   56 |         DMA1_t->Channel[0].CMAR = Copy_pu32DestinationAddress;
+      |                                 ^
+make: *** [Src/subdir.mk:37: Src/GPIO_program.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+21:57:57 Build Failed. 5 errors, 3 warnings. (took 786ms)
+
